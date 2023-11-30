@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spring-app
+    restart: unless-stopped
+    depends_on:
+      - postgresql
+      - adminer
+
+  postgresql:
+    image: postgres
+    container_name: postgresql
+    restart: no
+    environment:
+      POSTGRES_USER: senla
+      POSTGRES_PASSWORD: senla
+      POSTGRES_DB: weather_analyzer
+
+  adminer:
+    image: adminer
+    restart: no
+    ports:
+      - 8080:8080
