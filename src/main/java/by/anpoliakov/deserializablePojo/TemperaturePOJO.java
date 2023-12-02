@@ -1,20 +1,15 @@
-package by.anpoliakov.pojo;
+package by.anpoliakov.deserializablePojo;
 
 import com.fasterxml.jackson.annotation.*;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
+/**
+ * Класс для десериализацию блока JSON под ключом "main"
+ * предоставляет информацию о: температуре, температуре ощущаемой/
+ * минимальной/максимальной, давлении, влажности.
+ * **/
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-        "temp",
-        "feels_like",
-        "temp_min",
-        "temp_max",
-        "pressure",
-        "humidity"
-})
-public class Main {
+@JsonPropertyOrder({"temp", "feels_like", "temp_min", "temp_max", "pressure", "humidity"})
+public class TemperaturePOJO {
 
     @JsonProperty("temp")
     private Double temp;
@@ -28,8 +23,6 @@ public class Main {
     private Integer pressure;
     @JsonProperty("humidity")
     private Integer humidity;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("temp")
     public Double getTemp() {
@@ -91,26 +84,15 @@ public class Main {
         this.humidity = humidity;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
     @Override
     public String toString() {
-        return "Main{" +
+        return "TemperaturePOJO{" +
                 "temp=" + temp +
                 ", feelsLike=" + feelsLike +
                 ", tempMin=" + tempMin +
                 ", tempMax=" + tempMax +
                 ", pressure=" + pressure +
                 ", humidity=" + humidity +
-                ", additionalProperties=" + additionalProperties +
                 '}';
     }
 }

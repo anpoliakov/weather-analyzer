@@ -1,29 +1,47 @@
 package by.anpoliakov.controller;
 
-import by.anpoliakov.service.HandlerWeatherAPI;
+import by.anpoliakov.entity.LocalDateInterval;
+import by.anpoliakov.entity.Views;
+import by.anpoliakov.entity.Weather;
+import by.anpoliakov.entity.AverageWeather;
+import by.anpoliakov.repo.WeatherRepo;
+import by.anpoliakov.service.WeatherHandler;
+import com.fasterxml.jackson.annotation.JsonView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/weather")
 public class Controller {
+    private final static Logger logger = LoggerFactory.getLogger(Controller.class);
+
     @Autowired
-    private HandlerWeatherAPI handlerWeatherAPI;
+    private WeatherRepo weatherRepo;
+    @Autowired
+    private WeatherHandler weatherHandler;
 
-    @GetMapping
-    public ResponseEntity getWeater(){
-        try{
-            return ResponseEntity.ok("Сервер работает!");
-        }catch (Exception e){
-            return ResponseEntity.badRequest().body("Произошла ошибка!");
-        }
+    /**
+     * по GET запросу на адресс /weather
+     * @return Weather обьект в виде JSON
+     * последний, который был добавлен в БД
+     * **/
+    @GetMapping()
+    /** Устанавливаем своеобразный фильтр для вывода определённых полей пользователю **/
+    @JsonView(Views.DisplayInfo.class)
+    public Weather getLastWeatherFromDataBase(){
+        return weatherRepo.findTopByOrderByDateDesc();
     }
 
-    @GetMapping("/start")
-    public void get(){
-        handlerWeatherAPI.test();
+    /**
+     * по POST запросу на адресс /weather
+     * @return ???
+     * **/
+    @PostMapping()
+    public AverageWeather getAveInfo(@RequestBody LocalDateInterval localDateInterval){
+        return weatherHandler.getAveWeatherByLocalDateInterval(localDateInterval);
     }
+
+
 }

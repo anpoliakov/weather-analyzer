@@ -1,26 +1,23 @@
-package by.anpoliakov.pojo;
+package by.anpoliakov.deserializablePojo;
 
 import com.fasterxml.jackson.annotation.*;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
+/**
+ * Класс для десериализацию блока JSON под ключом "wind"
+ * предоставляет информацию скорости ветра
+ * **/
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-        "speed",
-        "deg",
-        "gust"
-})
-public class Wind {
+@JsonPropertyOrder({"speed","deg","gust"})
+public class WindPOJO {
 
     @JsonProperty("speed")
     private Integer speed;
+
+    //два поля ниже - не особо интересуют в контексе данной задачи
     @JsonProperty("deg")
     private Integer deg;
     @JsonProperty("gust")
     private Integer gust;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("speed")
     public Integer getSpeed() {
@@ -52,23 +49,12 @@ public class Wind {
         this.gust = gust;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
     @Override
     public String toString() {
-        return "Wind{" +
+        return "WindPOJO{" +
                 "speed=" + speed +
                 ", deg=" + deg +
                 ", gust=" + gust +
-                ", additionalProperties=" + additionalProperties +
                 '}';
     }
 }
