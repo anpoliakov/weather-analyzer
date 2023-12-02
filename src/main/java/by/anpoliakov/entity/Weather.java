@@ -19,7 +19,6 @@ public class Weather {
 
     /** Скорость ветра, м/ч */
     @JsonView(Views.DisplayInfo.class)
-    @JoinColumn(name = "wind_speed")
     private int windSpeed;
 
     /** Атмосферное давление, гПа */
@@ -32,7 +31,6 @@ public class Weather {
 
     /** Погодные условия */
     @JsonView(Views.DisplayInfo.class)
-    @JoinColumn(name = "weather_condition")
     private String weatherCondition;
 
     /** Локация */
