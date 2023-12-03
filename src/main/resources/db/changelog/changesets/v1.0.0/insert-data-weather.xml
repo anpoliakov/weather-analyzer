@@ -11,7 +11,7 @@
             <column name="humidity" value="94"/>
             <column name="weather_condition" value="солнечно"/>
             <column name="location" value="Минск"/>
-            <column name="date" value="25-10-2023 17:05:06"/>
+            <column name="date" value="2023-10-25 17:05:06"/>
         </insert>
 
         <insert tableName="weather">
@@ -21,7 +21,7 @@
             <column name="humidity" value="92"/>
             <column name="weather_condition" value="солнечно"/>
             <column name="location" value="Минск"/>
-            <column name="date" value="01-12-2023 13:05:06"/>
+            <column name="date" value="2023-12-01 13:05:06"/>
         </insert>
 
         <insert tableName="weather">
@@ -31,7 +31,7 @@
             <column name="humidity" value="88"/>
             <column name="weather_condition" value="небольшой снег"/>
             <column name="location" value="Минск"/>
-            <column name="date" value="02-12-2023 19:05:06"/>
+            <column name="date" value="2023-12-02 19:05:06"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

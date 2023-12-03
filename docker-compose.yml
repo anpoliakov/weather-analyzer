@@ -1,22 +1,22 @@
 version: '3.1'
 
 services:
-#  spring-app:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    container_name: spring-app
-#    restart: unless-stopped
-#    depends_on:
-#      - postgresql
+  weather-analyzer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: weather-analyzer
+    restart: on-failure
+    depends_on:
+      - postgresql
+    ports:
+      - 8080:8080
 
   postgresql:
     image: postgres
     container_name: postgresql
-    restart: no
+    restart: on-failure
     environment:
       POSTGRES_USER: senla
       POSTGRES_PASSWORD: senla
       POSTGRES_DB: weather_analyzer
-    ports:
-      - 5444:5432

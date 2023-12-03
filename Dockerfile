@@ -1,5 +1,4 @@
-FROM maven:3.8.3-openjdk-8-slim
-WORKDIR /app
-COPY . .
-RUN mvn package
-CMD mvn exec:java -Dexec.mainClass="by.anpoliakov.WeatherAnalyzerApplication"
+FROM openjdk:17-jdk-alpine
+ARG JAR_FILE=target/*.jar
+COPY ./target/weather-analyzer-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
