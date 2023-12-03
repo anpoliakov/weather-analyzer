@@ -13,5 +13,25 @@
             <column name="location" value="Минск"/>
             <column name="date" value="25-10-2023 17:05:06"/>
         </insert>
+
+        <insert tableName="weather">
+            <column name="temp" value="-2"/>
+            <column name="wind_speed" value="9"/>
+            <column name="pressure" value="999"/>
+            <column name="humidity" value="92"/>
+            <column name="weather_condition" value="солнечно"/>
+            <column name="location" value="Минск"/>
+            <column name="date" value="01-12-2023 13:05:06"/>
+        </insert>
+
+        <insert tableName="weather">
+            <column name="temp" value="-10"/>
+            <column name="wind_speed" value="1"/>
+            <column name="pressure" value="1002"/>
+            <column name="humidity" value="88"/>
+            <column name="weather_condition" value="небольшой снег"/>
+            <column name="location" value="Минск"/>
+            <column name="date" value="02-12-2023 19:05:06"/>
+        </insert>
     </changeSet>
 </databaseChangeLog>

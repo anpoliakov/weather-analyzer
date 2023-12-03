@@ -21,7 +21,6 @@ import java.util.concurrent.Executor;
 @SpringBootApplication
 @EnableScheduling
 @EnableAsync
-@EnableJpaRepositories(basePackages = "by.anpoliakov.repo")
 public class WeatherAnalyzerApplication {
     public static void main(String[] args) {
         SpringApplication.run(WeatherAnalyzerApplication.class, args);
