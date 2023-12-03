@@ -1,0 +1,17 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
+
+    <changeSet id="insert-data-weather" author="anpoliakov">
+        <insert tableName="weather">
+            <column name="temp" value="10.7"/>
+            <column name="wind_speed" value="5"/>
+            <column name="pressure" value="995"/>
+            <column name="humidity" value="94"/>
+            <column name="weather_condition" value="солнечно"/>
+            <column name="location" value="Минск"/>
+            <column name="date" value="25-10-2023 17:05:06"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

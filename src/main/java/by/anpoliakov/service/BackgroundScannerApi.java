@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -40,8 +41,13 @@ public class BackgroundScannerApi {
     @Async
     @Scheduled(fixedDelayString = "${api.weather.delay.scan}")
     public void scanApi() {
-        DeserializerWeatherDataset dataset = restTemplate.getForObject(url, DeserializerWeatherDataset.class, city, key);
-        logger.info("Десериализован ответ API Weather: " + dataset.toString());
-        weatherHandler.addWeatherInDataBase(dataset);
+        try {
+            DeserializerWeatherDataset dataset = restTemplate.getForObject(url, DeserializerWeatherDataset.class, city, key);
+            logger.info("Десериализован ответ API Weather: " + dataset.toString());
+            weatherHandler.addWeatherInDataBase(dataset);
+
+        }catch (ResourceAccessException e){
+            logger.error("Проверьте подключение к интернету, нет связи с сервером API " + url );
+        }
     }
 }

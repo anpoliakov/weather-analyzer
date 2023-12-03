@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Table
 public class Weather {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     /** Температура воздуха */
