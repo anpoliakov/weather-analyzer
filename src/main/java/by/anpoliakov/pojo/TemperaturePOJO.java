@@ -1,4 +1,4 @@
-package by.anpoliakov.deserializablePojo;
+package by.anpoliakov.pojo;
 
 import com.fasterxml.jackson.annotation.*;
 
@@ -12,55 +12,55 @@ import com.fasterxml.jackson.annotation.*;
 public class TemperaturePOJO {
 
     @JsonProperty("temp")
-    private Double temp;
+    private float temp;
     @JsonProperty("feels_like")
-    private Double feelsLike;
+    private float feelsLike;
     @JsonProperty("temp_min")
-    private Double tempMin;
+    private float tempMin;
     @JsonProperty("temp_max")
-    private Double tempMax;
+    private float tempMax;
     @JsonProperty("pressure")
     private Integer pressure;
     @JsonProperty("humidity")
     private Integer humidity;
 
     @JsonProperty("temp")
-    public Double getTemp() {
+    public float getTemp() {
         return temp;
     }
 
     @JsonProperty("temp")
-    public void setTemp(Double temp) {
+    public void setTemp(float temp) {
         this.temp = temp;
     }
 
     @JsonProperty("feels_like")
-    public Double getFeelsLike() {
+    public float getFeelsLike() {
         return feelsLike;
     }
 
     @JsonProperty("feels_like")
-    public void setFeelsLike(Double feelsLike) {
+    public void setFeelsLike(float feelsLike) {
         this.feelsLike = feelsLike;
     }
 
     @JsonProperty("temp_min")
-    public Double getTempMin() {
+    public float getTempMin() {
         return tempMin;
     }
 
     @JsonProperty("temp_min")
-    public void setTempMin(Double tempMin) {
+    public void setTempMin(float tempMin) {
         this.tempMin = tempMin;
     }
 
     @JsonProperty("temp_max")
-    public Double getTempMax() {
+    public float getTempMax() {
         return tempMax;
     }
 
     @JsonProperty("temp_max")
-    public void setTempMax(Double tempMax) {
+    public void setTempMax(float tempMax) {
         this.tempMax = tempMax;
     }
 

@@ -6,7 +6,7 @@
     <changeSet id="insert-data-weather" author="anpoliakov">
         <insert tableName="weather">
             <column name="temp" value="10.7"/>
-            <column name="wind_speed" value="5"/>
+            <column name="wind_speed" value="5.6"/>
             <column name="pressure" value="995"/>
             <column name="humidity" value="94"/>
             <column name="weather_condition" value="солнечно"/>
@@ -16,7 +16,7 @@
 
         <insert tableName="weather">
             <column name="temp" value="-2"/>
-            <column name="wind_speed" value="9"/>
+            <column name="wind_speed" value="9.0"/>
             <column name="pressure" value="999"/>
             <column name="humidity" value="92"/>
             <column name="weather_condition" value="солнечно"/>
@@ -26,7 +26,7 @@
 
         <insert tableName="weather">
             <column name="temp" value="-10"/>
-            <column name="wind_speed" value="1"/>
+            <column name="wind_speed" value="1.2"/>
             <column name="pressure" value="1002"/>
             <column name="humidity" value="88"/>
             <column name="weather_condition" value="небольшой снег"/>

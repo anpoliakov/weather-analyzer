@@ -1,4 +1,4 @@
-package by.anpoliakov.deserializablePojo;
+package by.anpoliakov.pojo;
 
 import com.fasterxml.jackson.annotation.*;
 
@@ -13,7 +13,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({"weather", "main", "wind", "sys", "name"})
-public class DeserializerWeatherDataset {
+public class WeatherDataset {
 
     @JsonProperty("weather")
     private List<WeatherСonditionPOJO> weatherСonditionPOJO;

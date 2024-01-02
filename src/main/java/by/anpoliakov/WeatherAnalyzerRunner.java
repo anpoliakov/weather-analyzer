@@ -3,7 +3,6 @@ package by.anpoliakov;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -21,13 +20,13 @@ import java.util.concurrent.Executor;
 @SpringBootApplication
 @EnableScheduling
 @EnableAsync
-public class WeatherAnalyzerApplication {
+public class WeatherAnalyzerRunner {
     public static void main(String[] args) {
-        SpringApplication.run(WeatherAnalyzerApplication.class, args);
+        SpringApplication.run(WeatherAnalyzerRunner.class, args);
     }
 
-    /**
-     * @return отдельный Executor, говорим что максимум 2 потока должны выполняться одновременно,
+    /*
+     * возвращаем отдельный Executor, говорим что максимум 2 потока должны выполняться одновременно,
      * а размер очереди установлен на 5 (не столь важно в контексте данной задачи)
      */
     @Bean

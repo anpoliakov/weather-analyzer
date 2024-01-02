@@ -6,28 +6,28 @@
 
     <changeSet id="create-table-weather" author="anpoliakov">
         <createTable tableName="weather">
-            <column name="id" type="bigint">
+            <column name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="temp" type="double">
+            <column name="temp" type="FLOAT">
                 <constraints nullable="false"/>
             </column>
-            <column name="wind_speed" type="integer">
+            <column name="wind_speed" type="FLOAT">
                 <constraints nullable="false"/>
             </column>
-            <column name="pressure" type="integer">
+            <column name="pressure" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="humidity" type="integer">
+            <column name="humidity" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
-            <column name="weather_condition" type="varchar(255)">
+            <column name="weather_condition" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="location" type="varchar(255)">
+            <column name="location" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="date" type="timestamp">
+            <column name="date" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
         </createTable>

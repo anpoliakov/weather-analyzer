@@ -1,4 +1,4 @@
-package by.anpoliakov.deserializablePojo;
+package by.anpoliakov.pojo;
 
 import com.fasterxml.jackson.annotation.*;
 

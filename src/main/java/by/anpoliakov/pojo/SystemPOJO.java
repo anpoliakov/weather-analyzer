@@ -1,4 +1,4 @@
-package by.anpoliakov.deserializablePojo;
+package by.anpoliakov.pojo;
 
 import com.fasterxml.jackson.annotation.*;
 
@@ -12,7 +12,6 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({"country", "sunrise", "sunset"})
 public class SystemPOJO {
-
     @JsonProperty("country")
     private String country;
     @JsonProperty("sunrise")

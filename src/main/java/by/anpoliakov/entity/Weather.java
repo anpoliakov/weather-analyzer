@@ -16,11 +16,11 @@ public class Weather {
 
     /** Температура воздуха */
     @JsonView(Views.DisplayInfo.class)
-    private double temp;
+    private float temp;
 
     /** Скорость ветра, м/ч */
     @JsonView(Views.DisplayInfo.class)
-    private int windSpeed;
+    private float windSpeed;
 
     /** Атмосферное давление, гПа */
     @JsonView(Views.DisplayInfo.class)
@@ -57,15 +57,15 @@ public class Weather {
         return temp;
     }
 
-    public void setTemp(double temp) {
+    public void setTemp(float temp) {
         this.temp = temp;
     }
 
-    public int getWindSpeed() {
+    public double getWindSpeed() {
         return windSpeed;
     }
 
-    public void setWindSpeed(int windSpeed) {
+    public void setWindSpeed(float windSpeed) {
         this.windSpeed = windSpeed;
     }
 
