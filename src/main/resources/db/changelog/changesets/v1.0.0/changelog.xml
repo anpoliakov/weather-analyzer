@@ -6,7 +6,6 @@
          https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
         logicalFilePath="db/changelog.xml">
 
-    <!-- локальный changelog файл, прописываем порядок загрузки changesets в пределах версии v1.0.0 -->
     <include file="create-table-weather.xml" relativeToChangelogFile="true"/>
     <include file="insert-data-weather.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
