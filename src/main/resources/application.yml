@@ -1,0 +1,40 @@
+# Settings of application
+api:
+  weather:
+    url: https://api.openweathermap.org/data/2.5/weather?q={city}&lang=ru&units=Metric&appid={key}
+    key: 4270a714ea94f7a924a1d4dde25084e4
+    city: Minsk
+    delay:
+      scan: 30000
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+        use_sql_comments: true
+    hibernate:
+      ddl-auto: none
+
+  datasource:
+    username: senla
+    password: senla
+    driver-class-name: org.postgresql.Driver
+    # Uncomment the required option:
+    # launching from IDEA
+    url: jdbc:postgresql://localhost:5432/weather_analyzer
+    # Launching from DOCKER
+    # url: jdbc:postgresql://postgresql:5432/weather_analyzer
+
+  liquibase:
+    user: senla
+    password: senla
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master.xml
+    driver-class-name: org.postgresql.Driver
+    # Uncomment the required option:
+    # launching from IDEA
+    url: jdbc:postgresql://localhost:5432/weather_analyzer
+    # Launching from DOCKER
+    # url: jdbc:postgresql://postgresql:5432/weather_analyzer
